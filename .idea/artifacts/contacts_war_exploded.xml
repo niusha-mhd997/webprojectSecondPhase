@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="contacts:war exploded">
+    <output-path>C:/Program Files/Apache Software Foundation/Tomcat 8.5/webapps/contacts</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="contacts" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="C:/Program Files/Apache Software Foundation/Tomcat 8.5/webapps/contacts/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="contacts/web/Web" />
+    </root>
+  </artifact>
+</component>
