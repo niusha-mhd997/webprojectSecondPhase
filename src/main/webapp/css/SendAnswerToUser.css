@@ -1,0 +1,122 @@
+html{
+  direction: rtl;
+  text-align: right;
+}
+
+#zerothdiv{
+  text-align: right;
+  height: 100%;
+}
+
+#matndiv{
+  background: #FFFBCE;
+  solid-color: #000;
+  border-radius: 10px;
+  margin-left: 2%
+}
+
+#matn{
+  color: #000000;
+  margin-left: 10%;
+  margin-right: 10%
+}
+
+
+#mozoo1{
+  color: #000;
+  font-size: 15px;
+  width: 10%
+}
+
+#mozoo2{
+  color: #000;
+  font-size: 15px;
+  width: 90%
+}
+
+
+#name1{
+  color: #000;
+  font-size: 15px;
+  width: 10%
+}
+
+#name2{
+  color: #000;
+  font-size: 15px;
+  width: 90%
+}
+
+#date1{
+  color: #000;
+  font-size: 15px;
+  width: 10%
+}
+
+#date2{
+  color: #000;
+  font-size: 15px;
+  width: 90%
+}
+
+#leftlist{
+  text-align: center;
+  list-style-type: none;
+  margin-top: 20%;
+  width: 100%;
+}
+li{
+  margin-top: 20px;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+
+}
+
+#verNav{
+  background-color: #3797AC;
+  position: fixed;
+  z-index: 10;
+  height: 100%;
+}
+
+@media (max-width: 576px) {
+  #verNav {
+    position: static;
+    display: none;
+  }
+}
+
+.fa-bars:hover {
+  cursor: pointer;
+}
+
+.active{
+  background-color: aqua;
+}
+
+#profile{
+  text-align: center;
+  margin-top: 15%;
+  width: 100%;
+}
+
+
+#matn_eteraz{
+  width: 100%;
+}
+
+:not(.fa) {
+  font-family: "iran sans";
+}
+
+#content{
+  /*border: 1px solid red;*/
+  width: 1000px;
+  margin: auto;
+}
+
+@font-face {
+  src: url('../font/IRANSans.ttf');
+  font-family: "iran sans";
+}

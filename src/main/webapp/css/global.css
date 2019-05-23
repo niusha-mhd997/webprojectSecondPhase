@@ -1,0 +1,57 @@
+#zerothdiv{
+    text-align: right;
+    height: 100%;
+}
+
+#profile{
+    text-align: center;
+    margin-top: 15%;
+    width: 100%;
+}
+.fa-bars:hover {
+    cursor: pointer;
+}
+/*@font-face {*/
+    /*src: url("/font/IRANSans.ttf");*/
+    /*font-family: "iran sans";*/
+/*}*/
+/*:not(.fa) {*/
+    /*font-family: "iran sans";*/
+/*}*/
+/*body{*/
+    /*font-family: "iran sans";*/
+/*}*/
+#verNav{
+    background-color: #3797AC;
+    position: fixed;
+    z-index: 10;
+    height: 100%;
+
+}
+
+@media (max-width: 576px) {
+    #verNav {
+        position: static;
+        display: none;
+    }
+}
+
+.fa-bars:hover {
+    cursor: pointer;
+}
+#username{
+    color: white;
+  font-size: large;
+    font-weight: bold;
+    text-align: center ;
+    margin-top: 10%;
+    margin-bottom: 20%;
+}
+ul{
+    text-align: center;
+    list-style-type: none;
+    margin-top: 5%;
+}
+/*.row{*/
+    /*font-family: "iran sans";*/
+/*}*/

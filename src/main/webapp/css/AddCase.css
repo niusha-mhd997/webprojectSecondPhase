@@ -1,0 +1,190 @@
+html{
+  direction: rtl;
+  text-align: right;
+}
+
+#firstdiv{
+  direction: rtl;
+  text-align: right;
+  padding: 10px;
+}
+
+#seconddiv{
+  direction: rtl;
+  text-align: right;
+  padding: 10px;
+}
+
+#thirddiv{
+  direction: rtl;
+  text-align: right;
+  padding: 10px;
+}
+
+#forthdiv{
+  direction: rtl;
+  text-align: right;
+  padding: 10px;
+}
+
+#fifthdiv{
+  direction: rtl;
+  text-align: right;
+  padding: 10px;
+}
+
+#forthdiv2{
+  text-align: center;
+}
+
+#zerothdiv{
+  text-align: right;
+  height: 100%;
+}
+
+#sabt{
+  width: 30%;
+  height: 60px;
+  background: #4B00FF;
+  color: #fff;
+  margin: 10px;
+}
+
+#asami{
+  padding-left: 10%;
+}
+
+#matn_eteraz{
+  width: 100%;
+}
+
+.cases-item-li{
+  background-color:#FFFFBD;
+  color: #000;
+  float: right;
+  text-align: right;
+  margin: auto;
+  clear: both;
+  /*padding: 5px;*/
+  /*list-style-type: none;*/
+  margin: 10px;
+  margin-left: 10%;
+  padding-top: 10px;
+  padding-right: 5px;
+  border-radius: 8px;
+  width: 100%;
+  height: 120px;
+}
+
+.cases-item-li:hover{
+  background-color:#BFD2FF;
+  cursor: pointer;
+}
+
+.selected{
+  background-color:#BFD2FF;
+  color: #000;
+  float: right;
+  text-align: right;
+  margin: auto;
+  clear: both;
+  /*padding: 5px;*/
+  /*list-style-type: none;*/
+  margin: 10px;
+  margin-left: 10%;
+  padding-top: 10px;
+  padding-right: 5px;
+  border-radius: 8px;
+  width: 100%;
+  height: 120px;
+}
+
+.top-nav{
+  background-color: #3797AC;
+  color: white;
+  text-align: right;
+  direction: rtl;
+  width: 100%;
+  margin-top: 0;
+
+}
+
+#leftlist{
+  text-align: center;
+  list-style-type: none;
+  margin-top: 20%;
+  width: 100%;
+}
+li{
+  margin-top: 20px;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+
+}
+
+
+#verNav{
+  background-color: #3797AC;
+  position: fixed;
+  z-index: 10;
+  height: 100%;
+}
+
+@media (max-width: 576px) {
+  #verNav {
+    position: static;
+    display: none;
+  }
+}
+
+.fa-bars:hover {
+  cursor: pointer;
+}
+
+.active{
+  background-color: aqua;
+}
+
+#profile{
+  text-align: center;
+  margin-top: 15%;
+  width: 100%;
+}
+
+
+.imgc{
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+
+}
+
+:not(.fa) {
+  font-family: "iran sans";
+}
+
+#content{
+  /*border: 1px solid red;*/
+  width: 1000px;
+  margin: auto;
+}
+
+.imagelist{
+  width: 20%;
+  height: 20%;
+}
+
+@font-face {
+  src: url("font/IRANSans.ttf");
+  font-family: "iran sans";
+}
+
+#khorooj:hover{
+  cursor: pointer;
+  color: #111659;
+  font-weight: bold;
+}
+#khorooj{
+  color: #fff;
+}
