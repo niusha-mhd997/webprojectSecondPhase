@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <title>net</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="css/AddCase.css"/>
+  <script src="js/addcasejs.js"></script>
+
+
+
+</head>
+
+
+<body onload="myFunction()" class="w-100" >
+
+
+<div id="zerothdiv" class="row">
+
+
+
+
+  <div id="verNav" class="col-md-3 d-md-block d-sm-none">
+
+
+
+    <div id="profile" class="container">
+      <img src="https://img.icons8.com/cotton/230/000000/name.png" id="imgc">
+    </div>
+
+
+
+    <br>
+    <div id="username" style="color: #ffffff; text-align: center">
+      <p id="nameofuser"></p>
+      <p id="emailofuser"></p>
+    </div>
+
+    <ul id="leftlist">
+
+
+      <li class="active">صفحه اصلی</li>
+      <li><a href="profileEdit.html" style="color: white">ویرایش پروفایل</a></li>
+      <li id="khorooj" onclick="clearcache()"><a class="casesVerNav">خروج</a></li>
+
+
+    </ul>
+  </div>
+
+
+  <div class="col-3">
+    <div class="fa fa-bars" onclick="show()" id="menubar">
+    </div>
+  </div>
+  <div id="verNav2" class="col-md-9">
+
+
+  <br>
+
+<span >
+      در این قسمت میتوانید شکایات و انتقادات و پیشنهادات و درخواست های خود را با مسوولین مربوطه دانشکده مطرح فرمایید. پس از انتخاب مسوول مربوطه درخواست خود را ثبت کنید. در صورت نیاز میتوانید فایل نیز آپلود کنید.
+</span>
+
+  <br>
+  <br>
+
+
+
+  <div id="firstdiv">
+
+<span >
+      موضوع را انتخاب کنید:&nbsp
+</span>
+
+  <select name="car" id="noe" onChange="myNewFunction(this);">
+    <option value="شکایت">شکایت</option>
+    <option value="انتقاد">انتقاد</option>
+    <option value="پیشنهاد">پیشنهاد</option>
+    <option value="درخواست">درخواست</option>
+  </select>
+
+</div>
+
+
+
+<div id="seconddiv" >
+
+  <textarea id="matn_eteraz" name="matn" cols="60" rows="8" placeholder="متن"></textarea>
+
+</div>
+
+
+
+
+<div id="thirddiv" >
+
+  <label for="fileupload">آپلود فایل:&nbsp</label>
+  <input id="fileupload" type="file" name="fileupload" value="fileupload">
+
+</div>
+
+
+
+<div id="forthdiv" >
+
+  <p>
+    کاربر مسؤول رسیدگی را انتخاب کنید:
+  </p>
+
+  <ul id="asami" >
+
+
+  </ul>
+
+  <br>
+
+  <div id="forthdiv2" >
+  <button id="sabt" onclick="send()">ثبت</button>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+</body>
+
+</html>

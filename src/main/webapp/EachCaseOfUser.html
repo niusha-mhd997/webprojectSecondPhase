@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <title>net</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="css/EachCaseOfUser.css"/>
+  <link rel="stylesheet" type="text/css" href="css/studentPage.css"/>
+  <script src="js/eachcaseofuserjs.js"></script>
+
+
+
+</head>
+
+
+<body onload="myFunction()" class="w-100" >
+
+
+<div id="zerothdiv" class="row">
+
+
+
+
+  <div id="verNav" class="col-md-3 d-md-block d-sm-none">
+
+
+
+    <div id="profile" class="container">
+      <img src="https://img.icons8.com/cotton/230/000000/name.png" id="imgc">
+    </div>
+
+
+
+    <div id="username" style="color: #ffffff; text-align: center" >
+      <br>
+      <p id="nameofuser"></p>
+      <p id="emailofuser"></p>
+    </div>
+
+    <ul id="leftlist">
+
+
+      <li class="active">صفحه اصلی</li>
+      <li><a href="profileEdit.html" style="color: white">ویرایش پروفایل</a></li>
+      <li id="khorooj" onclick="clearcache()"><a class="casesVerNav">خروج</a></li>
+
+    </ul>
+  </div>
+
+
+  <div class="col-3">
+    <div class="fa fa-bars" onclick="show()" id="menubar">
+    </div>
+  </div>
+  <div id="verNav2" class="col-md-9 container" style="text-align: center;">
+
+
+    <br>
+    <span id="mozoo" style="color: #FF0000; font-size: 20px">
+      موضوع مورد ثبت شده: شکایت
+    </span>
+
+    <br>
+    <br>
+    <span id="matn_fake" style="color: #3797AC; font-size: 20px">
+      متن درخواست شما:
+    </span>
+
+    <br>
+    <p id="matn" style="color: #000000; margin-left: 10%; margin-right: 10%">
+      سلام میخواستم نسبت به سرد بودن کلاس ها شکایت کنم و این را بخواهم که اگر ممکن است در سیستم گرمایشی دانشکده مهدسی کامپیوتر یک بازبینی بفرمایید و تعمیرات مربوطه را انجام دهید چرا که این سرما واقعا نشستن سر کلاس یا مختل کرده و واقعا یادگیری در این فضای سرد کار سختی است با تشکر.
+    </p>
+
+
+    <p style="color: #FF0000; font-size: 17px">
+      فایل ضمیمه شده: ندارد
+    </p>
+
+
+    <div style="text-align: right; background: #DDFF7B; border-radius: 15px; margin: 5%">
+
+
+      <div style="text-align: center">
+        <span style="font-size: 20px" >
+        وضعیت: رسیدگی شد
+      </span>
+      </div>
+
+      <br>
+
+      <span style=" margin-right: 4px">
+        مسوول رسیدگی: آقای امانی
+      </span>
+      <br>
+      <span style=" margin-right: 4px">
+        سمت: رییس تاسیسات دانشکده
+      </span>
+
+
+      <br>
+      <br>
+      <span style=" margin-right: 4px; color: #FF0000">
+        پاسخ: با سلام ممنون از گزارش این مورد حتما در دستور کار قرار گرفته و بررسی و پیگیری میشود.
+      </span>
+
+      <br>
+      <br>
+      <br>
+
+
+      <br>
+      <div style="text-align: center; padding-bottom: 2px" class="row">
+
+        <div class="col-md-11">
+      <span style=" margin-right: 4px">
+        لطفا میزان رضایت خود را از پاسخ ارزیابی فرمایید:
+      </span>
+        </div>
+
+        <div class="col-md-1">
+
+        </div>
+
+      </div>
+
+
+
+      <div class="row" style="padding-bottom: 5px">
+
+        <div class="col-md-3 col-xs-1 col-sm-1 col-1">
+
+        </div>
+
+
+        <div class="col-md-1 col-xs-2 col-sm-2 col-2">
+
+          <img src="img/verygood.png" class="imagestyle">
+
+        </div>
+
+        <div class="col-md-1 col-xs-2 col-sm-2 col-2">
+
+          <img src="img/good.png" class="imagestyle">
+
+        </div>
+
+
+        <div class="col-md-1 col-xs-2 col-sm-2 col-2">
+
+          <img src="img/poker.png" class="imagestyle">
+
+        </div>
+
+
+        <div class="col-md-1 col-xs-2 col-sm-2 col-2">
+
+          <img src="img/bad.png" class="imagestyle">
+
+        </div>
+
+
+        <div class="col-md-1 col-xs-2 col-sm-2 col-2">
+
+          <img src="img/verybad.png" class="imagestyle">
+
+        </div>
+
+
+        <div class="col-md-3 col-xs-1 col-sm-1 col-1" >
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+<script>
+    document.getElementById('asami').addEventListener('click', function(e) {
+        var selected;
+        if(e.target.tagName === 'DIV') {
+            selected= document.querySelector('div.selected');
+            if(selected) selected.className= 'cases-item-li';
+            e.target.className= 'selected';
+            masool_name = e.target.getElementsByTagName("span")[0].innerHTML;
+        }
+    });
+    function clearcache() {
+        localStorage.setItem("name", "0");
+        localStorage.setItem("email", "0");
+        localStorage.setItem("password", "0");
+        localStorage.setItem("token", "0");
+        window.open("http://localhost:8080/contacts/index.html","_parent");
+    }
+    //  function myFunction() {
+    //
+    //
+    //      var name = localStorage.getItem("name");
+    //     // alert(st);
+    //      var email = localStorage.getItem("email");
+    //      var password = localStorage.getItem("password");
+    //      document.getElementById("nameofuser").innerHTML = "نام: "+name;
+    //      document.getElementById("emailofuser").innerHTML = "ایمیل: "+email;
+    //      var token = localStorage.getItem("token");
+    //
+    //
+    //      var st;
+    //
+    //    var queryString = decodeURIComponent(window.location.search);
+    //    queryString = queryString.substring(1);
+    //    var queries = queryString.split("&");
+    //    for (var i = 0; i < queries.length; i++)
+    //    {
+    //      st = (queries[i]);
+    //    }
+    //
+    //
+    //
+    //  }
+</script>
+
+
+
+
+</body>
+
+</html>
