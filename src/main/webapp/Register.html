@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="http://beyamooz.com/try_it_yourself/bootstrap/bootstrap-rtl.min_.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/register2.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+    <script src="js/js2.js"></script>
+    <script src="js/Register.js"></script>
+
+
+    <title>Register</title>
+</head>
+<body onload="date()">
+
+<nav class="navbar navbar-expand-sm  navbar-dark top-nav">
+    <p><a href="FirstPage.html" style="color: white;font-size: 15px">خروج</a></p>
+    <h1 style="font-family: cursive; color: white; margin-right: 50%" id="header">ساپدش</h1>
+    <p  style="font-family: cursive; color: white; font-size: 20px" id="date-time"></p>
+    <!--<img src="https://img.icons8.com/dusk/50/000000/add-user-male.png">-->
+
+</nav>
+
+<div class="control container" >
+    <div id="picture">
+        <img src="./img/icon.png"  alt="image">
+
+        <!--<input type="file">-->
+    </div>
+
+    <form  class="form"  >
+        <div class="form-group">
+            <label for="name" style="margin-top: 20px" >نام و نام خانوادگی:</label>
+            <input type="text" class="form-control" id="name" placeholder="نام را وارد کنید">
+        </div>
+
+        <div class="form-group">
+            <label for="email"  >ایمیل:</label>
+            <input type="email" class="form-control" id="email" placeholder="ایمیل را وارد کنید">
+        </div>
+        <div class="form-group">
+            <label for="pwd1">رمز عبور:</label>
+            <input type="password" class="form-control" id="pwd1" placeholder="رمز عبور (حداقل 6 کاراکتر)">
+        </div>
+        <div class="form-group">
+            <label for="pwd2">تکرار رمز عبور:</label>
+            <input type="password" class="form-control" id="pwd2" placeholder="تکرار رمز عبور">
+        </div>
+        <div class="form-group">
+            <label for="name"  >سمت:</label>
+            <select>
+                <option value="student">دانشجو</option>
+                <option value="employee">کارمند</option>
+            </select>
+        </div>
+
+        <button type="button" onclick="Register()" class="btn btn-primary button" style="margin-top: 2%">ارسال</button>
+
+    </form>
+
+</div>
+
+
+
+</body>
+</html>

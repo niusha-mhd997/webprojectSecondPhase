@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login2.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+    <script src="js/js2.js"></script>
+    <script src="js/Login.js"></script>
+
+    <title>Login</title>
+</head>
+<body onload="date()">
+
+<nav class="navbar navbar-expand-sm  navbar-dark top-nav">
+
+    <p><a href="FirstPage.html" style="color: white;font-size: 15px">خروج</a></p>
+    <h1 style="font-family: cursive; color: white; margin-right: 50%" id="header">ساپدش</h1>
+    <p  style="font-family: cursive; color: white; font-size: 20px" id="date-time"></p>
+    <!--<img src="https://img.icons8.com/dusk/50/000000/add-user-male.png">-->
+
+</nav>
+
+<div class="control container" >
+    <div id="picture">
+        <img src="./img/sbu2.jpg"  alt="image">
+
+        <!--<input type="file">-->
+    </div>
+
+    <form  class="form"  >
+        <div class="form-group">
+            <label for="namex" style="margin-top: 20px" >ایمیل:</label>
+            <input type="text" class="form-control" id="namex" placeholder="ایمیل را وارد کنید">
+        </div>
+
+        <div class="form-group">
+            <label for="pwd1x">رمز عبور:</label>
+            <input type="password" class="form-control" id="pwd1x" placeholder="رمز عبور را وارد کنید">
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox"> مرا به خاطر داشته باش</label>
+        </div>
+
+        <button type="button" onclick="Login()" class="btn btn-primary button" style="margin-top: 5%" >ورود</button>
+
+    </form>
+
+
+
+
+</div>
+
+
+
+</body>
+</html>
