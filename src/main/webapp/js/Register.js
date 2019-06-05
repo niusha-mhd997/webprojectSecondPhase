@@ -14,10 +14,11 @@ function Register() {
             localStorage.setItem("password", "0");
             localStorage.setItem("token", "0");
 
+
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": "http://localhost:8080/contacts/rest/student/studentregister",
+                "url": "rest/student/studentregister",
                 "method": "POST",
                 "headers": {
                     "content-type": "application/x-www-form-urlencoded",
@@ -39,8 +40,9 @@ function Register() {
                     localStorage.setItem("name", response.data.name);
                     localStorage.setItem("email", response.data.email);
                     localStorage.setItem("password", response.data.password);
+                    localStorage.setItem("role", "student");
                     //alert(response.data.token+ "  موفق");
-                    window.open("http://localhost:8080/contacts/StudentPage.html", "_parent")
+                    window.open("StudentPage.html", "_parent")
 
                 } else {
                     alert(response.message)
