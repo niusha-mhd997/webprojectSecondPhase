@@ -47,6 +47,7 @@ function Login() {
             localStorage.setItem("name",response.data.name);
             localStorage.setItem("email",response.data.email);
             localStorage.setItem("password",response.data.password);
+            localStorage.setItem("role","student");
            // alert(response.data.token+ "  موفق");
             window.open("http://localhost:8080/contacts/StudentPage.html","_parent");
 
@@ -55,6 +56,7 @@ function Login() {
         }
 
         if(response.message === "به عنوان مدیر وارد شدید"){
+             alert("به عنوان مدیر وارد شدید");
         }
 
         if(response.message === "به عنوان کارمند وارد شدید"){
