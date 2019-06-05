@@ -3,25 +3,42 @@ package ir.asta.training.contacts.entities;
 /**
  * Created by win_8.1 on 5/18/2019.
  */
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="EMPLOYEE")
 public class EmployeeEntity {
 
-    String email;
-    String name;
-    String password;
-    int permission;
-
     @Id
     @Column(name = "EMAIL")
+    String email;
+
+    @Basic
+    @Column(name="NAME")
+    String name;
+
+    @Basic
+    @Column(name="PASSWORD")
+    String password;
+
+
+    //1=can Login, 0=cannot Login
+    @Basic
+    @Column(name="PERMISSION")
+    int permission;
+
+
+    @OneToMany(mappedBy = "RECEIVER", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<CaseEntity> CaseEntitys;
+    public List<CaseEntity> getCaseEntitys() {
+        return CaseEntitys;
+    }
+    public void setCaseEntitys(List<CaseEntity> caseEntitys) {
+        CaseEntitys = caseEntitys;
+    }
+
+
     public String getEmail() {
         return email;
     }
@@ -29,8 +46,6 @@ public class EmployeeEntity {
         this.email = email;
     }
 
-    @Basic
-    @Column(name="NAME")
     public String getName() {
         return name;
     }
@@ -38,8 +53,7 @@ public class EmployeeEntity {
         this.name = name;
     }
 
-    @Basic
-    @Column(name="PASSWORD")
+
     public String getPassword() {
         return password;
     }
@@ -48,8 +62,6 @@ public class EmployeeEntity {
     }
 
 
-    @Basic
-    @Column(name="PERMISSION")
     public int getPermission() {
         return permission;
     }
