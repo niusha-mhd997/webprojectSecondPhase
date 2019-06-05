@@ -12,9 +12,11 @@ import java.util.Random;
 
 import ir.asta.training.contacts.entities.CaseEntity;
 import ir.asta.training.contacts.entities.ContactEntity;
+import ir.asta.training.contacts.entities.EmployeeEntity;
 import ir.asta.training.contacts.entities.StudentEntity;
 import ir.asta.training.contacts.manager.CaseManager;
 import ir.asta.training.contacts.manager.ContactManager;
+import ir.asta.training.contacts.manager.EmployeeManager;
 import ir.asta.training.contacts.manager.StudentManager;
 import ir.asta.training.contacts.services.ContactService;
 import ir.asta.training.contacts.services.StudentService;
@@ -31,6 +33,11 @@ public class StudentServiceImpl implements StudentService {
 
     @Inject
     CaseManager caseManager;
+
+
+    @Inject
+    EmployeeManager employeeManager;
+
 
 
     @Override
@@ -68,7 +75,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public ActionResult<String> AddCase(String subject, String description, String receiver, String senderemail, String senderpassword) {
+    public ActionResult<String> AddCase(String subject, String description, String receiveremail, String senderemail, String senderpassword) {
 
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
@@ -92,17 +99,26 @@ public class StudentServiceImpl implements StudentService {
 
         String token = token1 + "" + c + "-" + token2 + "" + c2;
 
+        EmployeeEntity employeeEntity = employeeManager.getEmployeeByEmail(receiveremail);
+
         CaseEntity entity = new CaseEntity();
         entity.setSubject(subject);
         entity.setDescription(description);
-        entity.setReceiver(receiver);
+
+        //for relation
+        entity.setRECEIVER(employeeEntity);
+
+        //just string to show in response
+        entity.setReceiver(receiveremail);
+        entity.setSender(senderemail);
+
         entity.setDate(currentdate);
         entity.setStatuss(false);
         entity.setId(token);
 
         try {
             StudentEntity studentEntity = manager.getStudentByEmail(senderemail, senderpassword);
-            entity.setSTU(studentEntity);
+            entity.setSENDER(studentEntity);
             if (caseManager.AddCase(entity) == true) {
                 return new ActionResult<String>(true, "مورد با موفقیت ثبت شد", "");
 
