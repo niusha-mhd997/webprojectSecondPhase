@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Manager Page </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/managerPage.css">
+    <link rel="stylesheet" href="css/global.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+
+</head>
+
+
+<body onload="myFunction()" class="w-100" >
+
+
+<div id="zerothdiv" class="row">
+
+    <div id="verNav" class="col-md-3 d-md-block d-sm-none">
+
+
+
+        <div id="profile" class="container">
+            <img src="https://img.icons8.com/cotton/230/000000/name.png" id="imgc">
+        </div>
+
+
+
+        <div id="username">
+            <p>مهرنوش شمس فرد</p>
+        </div>
+
+        <ul>
+            <li style="background-color: aqua; color: white"><a class="casesVerNav" >صفحه اصلی</a></li>
+            <li><a href="OthersCases.html" class="casesVerNav">مشاهده موارد دیگر کارکنان</a></li>
+            <li><a href="NewMembers.html" class="casesVerNav">تایید کاربران جدید</a></li>
+            <li><a href="RemoveMembers.html" class="casesVerNav"> مشاهده کاربران سایت</a></li>
+            <li><a href="ManagerEditProfile.html" class="casesVerNav">ویرایش پروفایل</a></li>
+            <li><a href="FirstPage.html" class="casesVerNav">خروج</a></li>
+
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <div class="fa fa-bars" onclick="show()" id="menubar">
+        </div>
+    </div>
+
+
+
+    <div id="verNav2" class="col-md-9 leftSide">
+
+
+        <div class="subject">
+            <h5 >سامانه رسیدگی به انتقادات و پیشنهادات دانشجویان دانشگاه شهید بهشتی </h5>
+        </div>
+
+        <p class="cases">موارد رسیدگی نشده :</p>
+        <br>
+        <table class="table1" id="table1">
+            <tr>
+                <th>شماره</th>
+                <th>تاریخ</th>
+                <th>موضوع</th>
+                <th>مشاهده مورد</th>
+            </tr>
+            <tr id="empty1">
+                <td>&nbsp</td>
+                <td style="color: red">موردی وجود ندارد</td>
+                <td>&nbsp</td>
+                <td>&nbsp</td>
+            </tr>
+
+        </table>
+<br>
+        <p class="cases">موارد رسیدگی شده :</p>
+        <table class="table2" id="table2">
+            <tr>
+                <th>شماره</th>
+                <th>تاریخ</th>
+                <th>موضوع</th>
+                <th>مشاهده مورد</th>
+            </tr>
+            <tr id="empty2">
+                <td>&nbsp</td>
+                <td style="color: red">موردی وجود ندارد</td>
+                <td>&nbsp</td>
+                <td>&nbsp</td>
+            </tr>
+        </table>
+
+
+
+    </div>
+
+</div>
+
+<script src="js/managerPage.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</body>
+
+</html>
