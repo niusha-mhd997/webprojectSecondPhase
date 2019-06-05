@@ -32,14 +32,25 @@ public class CaseEntity {
     @Column(name = "STATUSS")
     boolean statuss;
 
+    @Column(name = "SENDER")
+    String sender;
+
     @Column(name = "RECEIVER")
     String receiver;
 
     @ManyToOne
     @JoinColumn(name="SENDER_EMAIL", referencedColumnName = "EMAIL")
     StudentEntity SENDER;
-    public void setSTU(StudentEntity SENDER) {
+    public void setSENDER(StudentEntity SENDER) {
         this.SENDER = SENDER;
+    }
+
+
+    @ManyToOne
+    @JoinColumn(name="RECEIVER_EMAIL", referencedColumnName = "EMAIL")
+    EmployeeEntity RECEIVER;
+    public void setRECEIVER(EmployeeEntity RECEIVER) {
+        this.RECEIVER = RECEIVER;
     }
 
 
@@ -79,12 +90,17 @@ public class CaseEntity {
         this.statuss = statuss;
     }
 
+    public String getSender() {
+        return sender;
+    }
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
     public String getReceiver() {
         return receiver;
     }
     public void setReceiver(String receiver) {
         this.receiver = receiver;
     }
-
-
 }
