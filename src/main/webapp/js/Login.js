@@ -49,7 +49,7 @@ function Login() {
             localStorage.setItem("password",response.data.password);
             localStorage.setItem("role","student");
            // alert(response.data.token+ "  موفق");
-            window.open("http://localhost:8080/contacts/StudentPage.html","_parent");
+            window.open("StudentPage.html","_parent");
 
            // alert("به عنوان دانشجو وارد شدید");
 
@@ -60,7 +60,16 @@ function Login() {
         }
 
         if(response.message === "به عنوان کارمند وارد شدید"){
-            alert("به عنوان کارمند وارد شدید");
+            alert( response.data.name +" به عنوان کارمند وارد شدید! " );
+
+            localStorage.setItem("token",response.data.token);
+            localStorage.setItem("name",response.data.name);
+            localStorage.setItem("email",response.data.email);
+            localStorage.setItem("password",response.data.password);
+            localStorage.setItem("semat",response.data.semat);
+            localStorage.setItem("role","employee");
+            // alert(response.data.token+ "  موفق");
+            window.open("EmployeePage.html","_parent");
         }
 
     });
