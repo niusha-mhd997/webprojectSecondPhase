@@ -98,16 +98,18 @@ function Register() {
 
                     if (response.success == true) {
 
-
-                        localStorage.setItem("token", response.data.token);
-                        localStorage.setItem("name", response.data.name);
-                        localStorage.setItem("email", response.data.email);
-                        localStorage.setItem("password", response.data.password);
+                        alert("با موفقیت ثبت نام شدید، منتظر تایید رییس بمانید!")
 
 
-
-                        localStorage.setItem("role", "employee");
-                        window.open("EmployeePage.html", "_parent")
+                        // localStorage.setItem("token", response.data.token);
+                        // localStorage.setItem("name", response.data.name);
+                        // localStorage.setItem("email", response.data.email);
+                        // localStorage.setItem("password", response.data.password);
+                        //
+                        //
+                        //
+                        // localStorage.setItem("role", "employee");
+                        // window.open("EmployeePage.html", "_parent")
 
 
                     } else {
