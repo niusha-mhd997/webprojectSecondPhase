@@ -73,13 +73,22 @@
 
     <br>
     <br>
+
+
+    <span id="date" style="color: #000; font-size: 16px">
+    تاریخ:
+    </span>
+
+    <br>
+
+
+    <br>
     <span id="matn_fake" style="color: #3797AC; font-size: 20px">
       متن درخواست شما:
     </span>
 
     <br>
     <p id="matn" style="color: #000000; margin-left: 10%; margin-right: 10%">
-      سلام میخواستم نسبت به سرد بودن کلاس ها شکایت کنم و این را بخواهم که اگر ممکن است در سیستم گرمایشی دانشکده مهدسی کامپیوتر یک بازبینی بفرمایید و تعمیرات مربوطه را انجام دهید چرا که این سرما واقعا نشستن سر کلاس یا مختل کرده و واقعا یادگیری در این فضای سرد کار سختی است با تشکر.
     </p>
 
 
@@ -88,30 +97,28 @@
     </p>
 
 
-    <div style="text-align: right; background: #DDFF7B; border-radius: 15px; margin: 5%">
+    <div id="vote" style="text-align: right; display: none; background: #DDFF7B; border-radius: 15px; margin: 5%">
 
 
-      <div style="text-align: center">
+      <div id="vote2" style="text-align: center">
         <span style="font-size: 20px" >
-        وضعیت: رسیدگی شد
+        وضعیت: رسیدگی شده
       </span>
       </div>
 
       <br>
 
-      <span style=" margin-right: 4px">
-        مسوول رسیدگی: آقای امانی
+      <span id="masool_n" style=" margin-right: 4px">
       </span>
       <br>
-      <span style=" margin-right: 4px">
-        سمت: رییس تاسیسات دانشکده
+      <span id="semat" style=" margin-right: 4px">
       </span>
 
 
       <br>
       <br>
-      <span style=" margin-right: 4px; color: #FF0000">
-        پاسخ: با سلام ممنون از گزارش این مورد حتما در دستور کار قرار گرفته و بررسی و پیگیری میشود.
+      <span id="pasokh" style=" margin-right: 4px; color: #FF0000">
+
       </span>
 
       <br>
@@ -190,56 +197,32 @@
 
     </div>
 
-  </div>
 
+
+
+    <div id="vote_not" style="text-align: right; display: none; background: #FF0000; border-radius: 15px; margin: 5%">
+
+      <br>
+
+      <div id="vote2_not" style="text-align: center">
+        <span style="font-size: 20px; color: #fff" >
+        وضعیت: رسیدگی نشده
+      </span>
+      </div>
+
+      <br>
+
+
+
+    </div>
+
+
+
+  </div>
 
 
 </div>
 
-
-<script>
-    document.getElementById('asami').addEventListener('click', function(e) {
-        var selected;
-        if(e.target.tagName === 'DIV') {
-            selected= document.querySelector('div.selected');
-            if(selected) selected.className= 'cases-item-li';
-            e.target.className= 'selected';
-            masool_name = e.target.getElementsByTagName("span")[0].innerHTML;
-        }
-    });
-    function clearcache() {
-        localStorage.setItem("name", "0");
-        localStorage.setItem("email", "0");
-        localStorage.setItem("password", "0");
-        localStorage.setItem("token", "0");
-        window.open("http://localhost:8080/contacts/index.html","_parent");
-    }
-    //  function myFunction() {
-    //
-    //
-    //      var name = localStorage.getItem("name");
-    //     // alert(st);
-    //      var email = localStorage.getItem("email");
-    //      var password = localStorage.getItem("password");
-    //      document.getElementById("nameofuser").innerHTML = "نام: "+name;
-    //      document.getElementById("emailofuser").innerHTML = "ایمیل: "+email;
-    //      var token = localStorage.getItem("token");
-    //
-    //
-    //      var st;
-    //
-    //    var queryString = decodeURIComponent(window.location.search);
-    //    queryString = queryString.substring(1);
-    //    var queries = queryString.split("&");
-    //    for (var i = 0; i < queries.length; i++)
-    //    {
-    //      st = (queries[i]);
-    //    }
-    //
-    //
-    //
-    //  }
-</script>
 
 
 
