@@ -5,7 +5,6 @@ package ir.asta.training.contacts.manager;
  */
 
 import ir.asta.training.contacts.dao.EmployeeDao;
-import ir.asta.training.contacts.entities.CaseEntity;
 import ir.asta.training.contacts.entities.EmployeeEntity;
 import org.springframework.transaction.annotation.Transactional;
 import javax.inject.Inject;
@@ -24,4 +23,13 @@ public class EmployeeManager {
     }
 
 
+    public List<EmployeeEntity> getAllEmployees() {
+        return employeeDao.getAllEmployees();
+    }
+
+
+    @Transactional
+    public boolean register(EmployeeEntity entity) {
+        return employeeDao.Register(entity);
+    }
 }
