@@ -78,7 +78,7 @@
     flood-color: white;
 }
 @font-face {
-    src: url("/font/IRANSans.ttf");
+    src: url("../font/IRANSans.ttf");
     font-family: "iran sans";
 }
 :not(.fa) {
