@@ -4,8 +4,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import ir.asta.training.contacts.entities.ContactEntity;
+import ir.asta.training.contacts.entities.EmployeeEntity;
 import ir.asta.training.contacts.entities.StudentEntity;
 import ir.asta.training.contacts.manager.ContactManager;
+import ir.asta.training.contacts.manager.EmployeeManager;
 import ir.asta.training.contacts.manager.StudentManager;
 import ir.asta.training.contacts.services.ContactService;
 import ir.asta.wise.core.datamanagement.ActionResult;
@@ -20,6 +22,9 @@ public class ContactServiceImpl implements ContactService {
 
 	@Inject
 	StudentManager studentManager;
+
+	@Inject
+	EmployeeManager employeeManager;
 	
 	@Override
 	public ContactEntity load(Long id) {
@@ -68,7 +73,8 @@ public class ContactServiceImpl implements ContactService {
 		}
 		if( manager.Login(email, password)== 3){
 			resp = "به عنوان کارمند وارد شدید";
-			return new ActionResult<Object>(true, resp,"");
+			EmployeeEntity employeeEntity = employeeManager.getEmployeeByEmail(email);
+			return new ActionResult<Object>(true, resp,employeeEntity);
 		}
 		if( manager.Login(email, password)== 4){
 			resp = "کارمندی شما تایید نشده";
