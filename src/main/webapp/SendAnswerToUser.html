@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <title>net</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="css/SendAnswerToUser.css"/>
+  <script src="js/sendanswertouserjs.js"></script>
+
+
+
+</head>
+
+
+<body onload="myFunction()" class="w-100" >
+
+
+<div id="zerothdiv" class="row">
+
+
+
+
+  <div id="verNav" class="col-md-3 d-md-block d-sm-none">
+
+
+
+    <div id="profile" class="container">
+      <img src="https://img.icons8.com/cotton/230/000000/name.png" id="imgc">
+    </div>
+
+
+
+    <div id="username">
+      <p style="color: white; text-align: center ; margin-top: 20px">مریم اصفهانی</p>
+    </div>
+
+    <ul id="leftlist">
+
+      <li class="active">صفحه اصلی</li>
+      <li><a href="EmployeeEditProfile.html" style="color: white ">ویرایش پروفایل</a></li>
+      <li><a href="FirstPage2.html" style="color: white">خروج</a></li>
+
+
+    </ul>
+  </div>
+
+
+  <div class="col-3">
+    <div class="fa fa-bars" onclick="show()" id="menubar">
+    </div>
+  </div>
+  <div id="verNav2" class="col-md-9 container" style="text-align: right;">
+
+
+    <br>
+    <div style="margin-top: 5px">
+
+    <span id="name1">
+      <img src="img/name.png" style="width: 30px; height: 30px; margin-right: 2px">
+    </span>
+
+      <span id="name2">
+      نام درخواست دهنده: نیوشا محمودی
+    </span>
+
+    </div>
+
+    <div style="margin-top: 5px">
+
+    <span id="date1">
+      <img src="img/calender.png" style="width: 30px; height: 30px">
+    </span>
+
+    <span id="date2">
+      تاریخ ثبت درخواست: 1398/02/05
+    </span>
+
+    </div>
+
+    <div style="margin-top: 5px">
+
+    <span id="mozoo1">
+      <img src="img/subject.png" style="width: 30px; height: 30px">
+    </span>
+
+      <span id="mozoo2">
+      موضوع درخواست ثبت شده: شکایت
+    </span>
+
+    </div>
+
+    <br>
+    <br>
+    <span id="matn_fake" style="color: #3797AC; font-size: 18px">
+      متن درخواست وی:
+    </span>
+
+    <br>
+
+    <div id="matndiv">
+
+    <p id="matn">
+      سلام میخواستم نسبت به سرد بودن کلاس ها شکایت کنم و این را بخواهم که اگر ممکن است در سیستم گرمایشی دانشکده مهدسی کامپیوتر یک بازبینی بفرمایید و تعمیرات مربوطه را انجام دهید چرا که این سرما واقعا نشستن سر کلاس یا مختل کرده و واقعا یادگیری در این فضای سرد کار سختی است با تشکر.
+    </p>
+
+    </div>
+
+    <p style="color: #FF0000; font-size: 17px">
+      فایل ضمیمه شده: ندارد
+    </p>
+
+
+
+    <br>
+    <span id="your" style="color: #3797AC; font-size: 18px">
+      پاسخ شما:
+    </span>
+
+    <div id="seconddiv" class="container" >
+
+      <textarea id="matn_eteraz" name="matn" cols="60" rows="8" placeholder="متن پاسخ"></textarea>
+
+    </div>
+
+
+    <button style="background: #005cbf; color: #fff; width: 20%; height: 7%">ارسال</button>
+
+
+  </div>
+
+
+
+</div>
+
+
+<script>
+
+  document.getElementById('asami').addEventListener('click', function(e) {
+    var selected;
+
+    if(e.target.tagName === 'DIV') {
+      selected= document.querySelector('div.selected');
+      if(selected) selected.className= 'cases-item-li';
+      e.target.className= 'selected';
+      masool_name = e.target.getElementsByTagName("span")[0].innerHTML;
+    }
+  });
+
+
+  function myFunction() {
+
+    var st;
+
+    var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
+    var queries = queryString.split("&");
+    for (var i = 0; i < queries.length; i++)
+    {
+      st = (queries[i]);
+    }
+
+    //alert(st);
+
+
+  }
+
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
