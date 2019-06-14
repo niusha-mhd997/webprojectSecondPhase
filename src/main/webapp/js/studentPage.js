@@ -1,4 +1,13 @@
-﻿function myFunction() {
+
+if(localStorage.getItem("role")==="student"){
+
+}else{
+    alert(localStorage.getItem("role")+" شما دسترسی لازم را ندارید! ");
+    window.open("FirstPage.html", "_parent");
+}
+
+
+function myFunction() {
 
     var name = localStorage.getItem("name");
     var email = localStorage.getItem("email");
