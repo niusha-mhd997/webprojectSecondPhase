@@ -1,6 +1,15 @@
+
+
+// if(localStorage.getItem("role")==="student"){
+//
+// }else{
+//     alert(localStorage.getItem("role")+" شما دسترسی لازم را ندارید2! ");
+//     window.open("FirstPage.html", "_parent");
+//
+// }
+
+
 function show() {
-
-
     var elem = document.getElementById("verNav");
     elem.style.display = "block";
     document.getElementById("menubar").style.display = "none";
@@ -8,11 +17,6 @@ function show() {
 
 
 function myFunction() {
-
-
-    alert("سزس");
-
-
 
     var name = localStorage.getItem("name");
     // alert(st);
@@ -46,7 +50,7 @@ function myFunction() {
 
     var token = (queryString.split(':'))[1];
 
-    alert(token);
+   // alert(token);
 
 
     var settings = {
@@ -68,14 +72,47 @@ function myFunction() {
         var date = response.date;
         var statuss = response.statuss;
 
-        alert(matn);
+       // alert(matn);
+
+        var mozoo = "موضوع ثبت شده: " + subject;
+        document.getElementById("mozoo").innerHTML = mozoo;
+
+        var desc = matn;
+        document.getElementById("matn").innerHTML = desc;
+
+        var date2 = "تاریخ ثبت درخواست: " + date;
+        document.getElementById("date").innerHTML = date2;
+
+
+        if(statuss){
+
+            document.getElementById("vote").style.display = "block";
+            var masool = response.receiver.name;
+            document.getElementById("masool_n").innerHTML ="مسوول رسیدگی: " + masool;
+
+            var semat = response.receiver.semat;
+            document.getElementById("semat").innerHTML ="سمت: " + semat;
+
+            document.getElementById("pasokh").innerHTML ="پاسخ: " + response.answer;
+
+        }else{
+            document.getElementById("vote_not").style.display = "block";
+        }
 
     });
 
 
     $.ajax(settings).fail(function (jqXHR, textStatus) {
-        alert("failed:  " + jqXHR + "  " + textStatus);
+       // alert("failed:  " + jqXHR + "  " + textStatus);
     });
 
 
+}
+
+function clearcache() {
+    localStorage.setItem("name", "0");
+    localStorage.setItem("email", "0");
+    localStorage.setItem("password", "0");
+    localStorage.setItem("token", "0");
+    window.open("http://localhost:8080/contacts/index.html","_parent");
 }
