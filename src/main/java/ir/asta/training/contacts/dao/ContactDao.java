@@ -95,14 +95,16 @@ public class ContactDao {
             //employee
             String entityName4 = "EmployeeEntity";
             Query q4 = entityManager.createQuery("select e.permission from " + entityName4 + " e WHERE" +
-                    " e.email = :email AND e.password = :password");
-            int per = (int) q4.getResultList().get(0);
-            if(per == 1){
-                System.out.println("3");
+                    " e.email = " + "'" + email + "'" + " AND e.password = " + "'" + password + "'");
+            boolean per = (boolean) q4.getResultList().get(0);
+            if(per){
+                //can login
+                //System.out.println("3");
                 return 3;
             }
-            if(per == 0){
-                System.out.println("4");
+            else{
+                //can not login
+                //System.out.println("4");
                 return 4;
             }
 
