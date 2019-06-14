@@ -6,6 +6,7 @@ package ir.asta.training.contacts.services.impl;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -75,7 +76,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public ActionResult<String> AddCase(String subject, String description, String receiveremail, String senderemail, String senderpassword) {
+    public ActionResult<String> AddCase(String subject, String description, String receiver, String senderemail, String senderpassword) {
 
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
@@ -99,7 +100,9 @@ public class StudentServiceImpl implements StudentService {
 
         String token = token1 + "" + c + "-" + token2 + "" + c2;
 
-        EmployeeEntity employeeEntity = employeeManager.getEmployeeByEmail(receiveremail);
+        System.out.println(receiver);
+
+        EmployeeEntity employeeEntity = employeeManager.getEmployeeByEmail(receiver);
 
         CaseEntity entity = new CaseEntity();
         entity.setSubject(subject);
@@ -108,10 +111,6 @@ public class StudentServiceImpl implements StudentService {
         //for relation
         entity.setRECEIVER(employeeEntity);
 
-        //just string to show in response
-        entity.setReceiver(receiveremail);
-        entity.setSender(senderemail);
-
         entity.setDate(currentdate);
         entity.setStatuss(false);
         entity.setId(token);
@@ -119,6 +118,7 @@ public class StudentServiceImpl implements StudentService {
         try {
             StudentEntity studentEntity = manager.getStudentByEmail(senderemail, senderpassword);
             entity.setSENDER(studentEntity);
+
             if (caseManager.AddCase(entity) == true) {
                 return new ActionResult<String>(true, "مورد با موفقیت ثبت شد", "");
 
@@ -133,6 +133,13 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<CaseEntity> getCasesByUserToken(int token) {
         try {
+            List<CaseEntity> caseEntities = caseManager.getCasesByUserToken(token);
+            for(CaseEntity c: caseEntities){
+                c.getRECEIVER().setPassword(null);
+                c.getRECEIVER().setEmail(null);
+                c.getRECEIVER().setToken(0);
+                c.getRECEIVER().setPermission(false);
+            }
             return caseManager.getCasesByUserToken(token);
         } catch (Exception e) {
             return null;
@@ -159,7 +166,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public CaseEntity getCaseByCaseToken(String token) {
-        return caseManager.getCaseByCaseToken(token);
+        CaseEntity caseEntity = caseManager.getCaseByCaseToken(token);
+        caseEntity.getRECEIVER().setPassword(null);
+        caseEntity.getRECEIVER().setEmail(null);
+        caseEntity.getRECEIVER().setToken(0);
+        caseEntity.getRECEIVER().setPermission(false);
+        return caseEntity;
     }
 
 
