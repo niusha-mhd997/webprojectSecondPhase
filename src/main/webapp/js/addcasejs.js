@@ -18,44 +18,65 @@ function myFunction() {
     document.getElementById("emailofuser").innerHTML = "ایمیل: " + email;
     var token = localStorage.getItem("token");
 
-    var toppings = ["آقای امینی مسوول آزمایشگاه", "آقای یزدی مسوول سایت", "خانم رضایی مسوول آموزش",
-        "خانم اصفهانی مسوول کلاس ها"];
 
-    var ul = document.getElementById("asami");
+    var toppings = [];
 
-    for (var i = 0; i < toppings.length; i++) {
-        var topping2 = toppings[i];
+    var settings2 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:8080/contacts/rest/employee/getallemployees",
+        "method": "GET",
+        "headers": {
+            "content-type": "application/x-www-form-urlencoded",
+            "cache-control": "no-cache"
+        }
+    };
 
-        var topping = "  " + toppings[i];
-        var listItem = document.createElement("li");
-        listItem.tabindex = "1";
+    $.ajax(settings2).done(function (response) {
+        for (var f= 0;f<response.length;f++){
 
-        var divItem = document.createElement("div");
-        divItem.className = "cases-item-li";
-        divItem.ID = "listdiv";
+            // alert(response[f].name + " " + response[f].semat);
 
-        var imgItem = document.createElement("img");
-        imgItem.className = "imgc";
-        imgItem.style = "background: #00cc00";
-        imgItem.src = "img/avatar.png";
-
-
-        var spanItem = document.createElement("span");
-        spanItem.style = "color: #0b2e13";
-        spanItem.innerHTML = topping;
-
-        //xhx beshavad haman email
-        //spanItem.xhx = i;
+            var ul = document.getElementById("asami");
+            var topping = "  " + (response[f].name + " " + response[f].semat);
+            var topping2 =(response[f].email);
 
 
-        divItem.appendChild(imgItem);
-        divItem.appendChild(spanItem);
+            var listItem = document.createElement("li");
+            listItem.tabindex = "1";
 
-        listItem.appendChild(divItem);
+            var divItem = document.createElement("div");
+            divItem.className = "cases-item-li";
+            divItem.ID = "listdiv";
 
-        ul.appendChild(listItem);
+            var imgItem = document.createElement("img");
+            imgItem.className = "imgc";
+            imgItem.style = "background: #00cc00";
+            imgItem.src = "img/avatar.png";
 
-    }
+
+            var spanItem = document.createElement("span");
+            spanItem.style = "color: #0b2e13";
+            spanItem.innerHTML = topping;
+
+
+            var spanItem2 = document.createElement("span");
+            spanItem2.style.visibility = 'hidden';
+            spanItem2.value = topping2;
+
+
+            divItem.appendChild(imgItem);
+            divItem.appendChild(spanItem);
+            divItem.appendChild(spanItem2);
+
+
+            listItem.appendChild(divItem);
+
+            ul.appendChild(listItem);
+
+        }
+    });
+
 
 
     document.getElementById('asami').addEventListener('click', function (e) {
@@ -65,8 +86,8 @@ function myFunction() {
             selected = document.querySelector('div.selected');
             if (selected) selected.className = 'cases-item-li';
             e.target.className = 'selected';
-            masool_name = e.target.getElementsByTagName("span")[0].innerHTML;
-            // masool_name = e.target.getElementsByTagName("span")[0].xhx;
+            masool_email = e.target.getElementsByTagName("span")[1].value;
+            masool_name = e.target.getElementsByTagName("span")[0].xhx;
         }
     });
 
@@ -83,25 +104,26 @@ var mozoo = "شکایت";
 var matn;
 var file;
 var masool_name;
+var masool_email;
 var receiver_name;
 
 
 function send() {
 
-    if (masool_name == undefined) {
+    if (masool_email == undefined) {
 
         alert("کاربر مسوول رسیدگی را انتخاب کنید");
+
 
     }
 
     else {
 
-        //matn = document.getElementById('matn_eteraz').value;
 
-        //alert(masool_name);
 
         var e = document.getElementById("noe");
         var type = e.options[e.selectedIndex].value;
+
 
         var settings = {
             "async": true,
@@ -115,7 +137,7 @@ function send() {
             "data": {
                 "subject": type,
                 "description": document.getElementById('matn_eteraz').value,
-                "receiver": "admin@gamil.com",
+                "receiver": masool_email,
                 "senderemail": localStorage.getItem("email"),
                 "senderpassword": localStorage.getItem("password")
             }
@@ -140,7 +162,8 @@ function date() {
     d = n.getDate();
     h = n.getHours();
     min = n.getMinutes();
-    document.getElementById("date-time").innerHTML = m + "/" + d + "/" + y + "&nbsp &nbsp &nbsp" + h + " : " + min;
+    document.getElementById("date-time").innerHTML = m + "/" + d + "/" + y + "&nbsp &nbsp &nbsp" + h + " : "
+        + min;
 }
 
 function show() {
