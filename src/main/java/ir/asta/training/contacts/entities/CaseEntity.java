@@ -29,14 +29,13 @@ public class CaseEntity {
     @Column(name = "DATE")
     String date;
 
+    @Column(name = "ANSWER")
+    String answer;
+
+    // false: not answered,
+    // true: answered
     @Column(name = "STATUSS")
     boolean statuss;
-
-    @Column(name = "SENDER")
-    String sender;
-
-    @Column(name = "RECEIVER")
-    String receiver;
 
     @ManyToOne
     @JoinColumn(name="SENDER_EMAIL", referencedColumnName = "EMAIL")
@@ -52,7 +51,9 @@ public class CaseEntity {
     public void setRECEIVER(EmployeeEntity RECEIVER) {
         this.RECEIVER = RECEIVER;
     }
-
+    public EmployeeEntity getRECEIVER() {
+        return RECEIVER;
+    }
 
     public String getId() {
         return id;
@@ -90,17 +91,10 @@ public class CaseEntity {
         this.statuss = statuss;
     }
 
-    public String getSender() {
-        return sender;
+    public String getAnswer() {
+        return answer;
     }
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
-
-    public String getReceiver() {
-        return receiver;
-    }
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }
