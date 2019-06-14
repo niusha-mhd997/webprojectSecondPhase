@@ -22,22 +22,23 @@ public class EmployeeEntity {
     @Column(name="PASSWORD")
     String password;
 
+    @Column(name="SEMAT")
+    String semat;
 
-    //1=can Login, 0=cannot Login
+    //true=can Login, false=cannot Login
     @Basic
     @Column(name="PERMISSION")
-    int permission;
+    boolean permission;
 
+    @Basic
+    @Column(name="TOKEN")
+    int token;
 
     @OneToMany(mappedBy = "RECEIVER", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<CaseEntity> CaseEntitys;
-    public List<CaseEntity> getCaseEntitys() {
-        return CaseEntitys;
-    }
     public void setCaseEntitys(List<CaseEntity> caseEntitys) {
         CaseEntitys = caseEntitys;
     }
-
 
     public String getEmail() {
         return email;
@@ -53,7 +54,6 @@ public class EmployeeEntity {
         this.name = name;
     }
 
-
     public String getPassword() {
         return password;
     }
@@ -61,11 +61,33 @@ public class EmployeeEntity {
         this.password = password;
     }
 
-
-    public int getPermission() {
+    public boolean getPermission() {
         return permission;
     }
-    public void setPermission(int permission) {
+    public void setPermission(boolean permission) {
         this.permission = permission;
+    }
+
+    public int getToken() {
+        return token;
+    }
+    public void setToken(int token) {
+        this.token = token;
+    }
+
+    public String getSemat() {
+        return semat;
+    }
+    public void setSemat(String semat) {
+        this.semat = semat;
+    }
+
+    public EmployeeEntity(String email, String name, String semat) {
+        this.email = email;
+        this.name = name;
+        this.semat = semat;
+    }
+
+    public EmployeeEntity() {
     }
 }
