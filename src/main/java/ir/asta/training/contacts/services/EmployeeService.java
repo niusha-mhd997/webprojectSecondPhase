@@ -27,4 +27,12 @@ public interface EmployeeService {
                                                 @FormParam("name") String name,
                                                 @FormParam("semat") String semat,
                                                 @FormParam("password") String password);
+
+
+    @GET
+    @Path("/getEmployeeCasesByToken/{token}/{done}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CaseEntity> getEmployeeCasesByToken(@PathParam("token") int token,
+                                                            @PathParam("done") boolean done
+    );
 }
