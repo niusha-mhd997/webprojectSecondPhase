@@ -1,5 +1,6 @@
 package ir.asta.training.contacts.services.impl;
 
+import ir.asta.training.contacts.entities.CaseEntity;
 import ir.asta.training.contacts.entities.EmployeeEntity;
 import ir.asta.training.contacts.manager.EmployeeManager;
 import ir.asta.training.contacts.services.EmployeeService;
@@ -59,5 +60,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
 
-
+    @Override
+    public List<CaseEntity> getEmployeeCasesByToken(int token, boolean done) {
+        return employeeManager.getEmployeeCasesByToken(token,done);
+    }
 }
