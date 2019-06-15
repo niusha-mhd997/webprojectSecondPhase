@@ -14,6 +14,7 @@ import javax.persistence.Query;
 
 import ir.asta.training.contacts.entities.CaseEntity;
 import ir.asta.training.contacts.entities.ContactEntity;
+import ir.asta.training.contacts.entities.EmployeeEntity;
 import ir.asta.training.contacts.entities.StudentEntity;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -67,6 +68,41 @@ public class CaseDao {
                 .get(0);
 
     }
+
+
+    public List<CaseEntity> getEmployeeCasesDoneByToken(int token){
+
+        String entityNamex = "CaseEntity";
+        String entityName2 = "EmployeeEntity";
+        Query t = entityManager.createQuery("select e from " + entityName2 + " e WHERE" +
+                " e.token = :token").setParameter("token", token);
+        EmployeeEntity employeeEntity = (EmployeeEntity) t.getResultList().get(0);
+        String email = employeeEntity.getEmail();
+
+        Query q = entityManager.createQuery("select e from " + entityNamex + " e WHERE" +
+                " e.RECEIVER.email = :email AND e.statuss = true");
+        q.setParameter("email", email);
+        return q.getResultList();
+
+    }
+
+
+    public List<CaseEntity> getEmployeeNotDoneByToken(int token){
+
+        String entityNamex = "CaseEntity";
+        String entityName2 = "EmployeeEntity";
+        Query t = entityManager.createQuery("select e from " + entityName2 + " e WHERE" +
+                " e.token = :token").setParameter("token", token);
+        EmployeeEntity employeeEntity = (EmployeeEntity) t.getResultList().get(0);
+        String email = employeeEntity.getEmail();
+
+        Query q = entityManager.createQuery("select e from " + entityNamex + " e WHERE" +
+                " e.RECEIVER.email = :email AND e.statuss = false");
+        q.setParameter("email", email);
+        return q.getResultList();
+
+    }
+
 
 
 }
