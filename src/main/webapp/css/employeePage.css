@@ -66,8 +66,7 @@ th{
 }
 .choose:hover{
     cursor: pointer;
-    color: red;
-    font-weight: bold;
+    color: black;
 }
 .add {
     color: white;
@@ -83,7 +82,7 @@ th{
     padding: 2%;
 }
 @font-face {
-    src: url("/font/IRANSans.ttf");
+    src: url("../font/IRANSans.ttf");
     font-family: "iran sans";
 }
 :not(.table1) {
@@ -95,4 +94,12 @@ th{
 }
 #empty1{
     /*visibility: hidden;*/
+}
+
+#khorooj:hover{
+    cursor: pointer;
+    color: #111659;
+}
+#khorooj{
+    color: #fff;
 }
