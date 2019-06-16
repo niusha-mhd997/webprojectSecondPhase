@@ -12,19 +12,21 @@ function date(){
     d = n.getDate();
     h=n.getHours();
     min=n.getMinutes();
-    document.getElementById("date-time").innerHTML = d + "/" + m + "/" + y +"&nbsp &nbsp &nbsp" + h+" : "+min;
+    document.getElementById("date-time").innerHTML = d + "/" + m + "/" + y +"&nbsp &nbsp &nbsp" + h+" : 
+
+"+min;
 
     var name = localStorage.getItem("name");
     var email = localStorage.getItem("email");
     var password = localStorage.getItem("password");
     var token = localStorage.getItem("token");
+    var role = localStorage.getItem("role");
 
-    if(name === "0" || name===null){
-       // alert("k: " + name);
-    }else{
-       // alert("z: " + name);
-        window.open("http://localhost:8080/contacts/StudentPage.html","_parent");
-
+    if(role==="employee"){
+        window.location.replace("EmployeePage.html");
+    }
+    if(role==="student"){
+        window.location.replace("StudentPage.html");
     }
 
 }
