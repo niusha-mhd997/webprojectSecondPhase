@@ -1,180 +1,105 @@
+<!doctype html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>صفحه کارمند</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/employeePage.css">
+    <link rel="stylesheet" href="css/global.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
 
 
-if(localStorage.getItem("role")==="employee"){
-
-}else{
-    alert(localStorage.getItem("role")+" شما دسترسی لازم را ندارید! ");
-    window.open("FirstPage.html", "_parent");
-}
+<body onload="myFunction()" class="w-100" >
 
 
-function myFunction() {
+<div id="zerothdiv" class="row">
 
+    <div id="verNav" class="col-md-3 d-md-block d-sm-none">
 
-    var name = localStorage.getItem("name");
-    var email = localStorage.getItem("email");
-    var password = localStorage.getItem("password");
-    document.getElementById("nameofuser").innerHTML = "نام: "+name;
-    document.getElementById("emailofuser").innerHTML = "ایمیل: "+email;
+        <div id="profile" class="container">
+            <img src="https://img.icons8.com/cotton/230/000000/name.png" id="imgc">
+        </div>
 
-    var token = localStorage.getItem("token");
-    var toppings;
-    var toppings2;
+        <div id="username">
+            <p id="nameofuser"></p>
+            <p id="emailofuser"></p>
+        </div>
 
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "rest/employee/getEmployeeCasesByToken/"+token+"/"+true,
-        "method": "GET",
-        "headers": {
-            "content-type": "application/x-www-form-urlencoded",
-            "cache-control": "no-cache"
-        }
-    };
+        <ul>
+            <li style="background-color: aqua; color: white"><a class="casesVerNav">صفحه اصلی</a></li>
+            <li ><a href="EmployeeEditProfile.html" class="casesVerNav">ویرایش پروفایل</a></li>
+            <li id="khorooj" onclick="clearcache()"><a class="casesVerNav">خروج</a></li>
 
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-        var t = response.length;
-        toppings=createArray(t, 5);
-        for (var f= 0;f<response.length;f++){
+        </ul>
+    </div>
 
-            toppings[f][0]=response[f].id;
-            toppings[f][1]=response[f].date;
-            toppings[f][2]=response[f].subject;
-            toppings[f][3]="مشاهده";
-
-        }
-        if (toppings.length !== 0) {
-
-            var table = document.getElementById("table2");
-            table.deleteRow(1);
-            for (var i = 0; i < toppings.length; i++) {
-                //localStorage.setItem("i",i);
-                var rowItem = document.createElement("tr");
-                for (var j = 0; j < 4; j++) {
-                    var tableItem = document.createElement("td");
-                    tableItem.textContent = toppings[i][j];
-                    if (j === 3) {
-                        tableItem.className = "choose";
-                        tableItem.id = "choose";
-                    }
-                    rowItem.appendChild(tableItem);
-                }
-
-                table.appendChild(rowItem);
-            }
-
-            for (var m = 0; m <= toppings.length; m++) {
-                table.rows[m].cells[3].addEventListener("click", function(m) {
-                    alert(m + " " + toppings[m-1][0]+ " " + toppings[m-1][1]+ " " + toppings[m-1][2]);
-                   window.open("SendAnswerToUser.html?token:"+toppings[m-1][0],"_parent");
-                }.bind(null, m));
-
-            }
-
-        }
-    });
+    <div class="col-3">
+        <div class="fa fa-bars" onclick="show()" id="menubar">
+        </div>
+    </div>
 
 
 
+    <div id="verNav2" class="col-md-9 leftSide">
 
 
-    var settings2 = {
-        "async": true,
-        "crossDomain": true,
-        "url": "rest/employee/getEmployeeCasesByToken/"+token+"/"+false,
-        "method": "GET",
-        "headers": {
-            "content-type": "application/x-www-form-urlencoded",
-            "cache-control": "no-cache"
-        }
-    };
-
-    $.ajax(settings2).done(function (response) {
-        console.log(response);
-        var t = response.length;
-        toppings2=createArray(t, 5);
-        for (var f= 0;f<response.length;f++){
-
-            toppings2[f][0]=response[f].id;
-            toppings2[f][1]=response[f].date;
-            toppings2[f][2]=response[f].subject;
-            toppings2[f][3]="مشاهده";
-
-        }
-        if (toppings2.length !== 0) {
-
-            var table2 = document.getElementById("table1");
-            table2.deleteRow(1);
-            for (var i = 0; i < toppings2.length; i++) {
-                //localStorage.setItem("i",i);
-                var rowItem = document.createElement("tr");
-                for (var j = 0; j < 4; j++) {
-                    var tableItem = document.createElement("td");
-                    tableItem.textContent = toppings2[i][j];
-                    if (j === 3) {
-                        tableItem.className = "choose";
-                        tableItem.id = "choose";
-                    }
-                    rowItem.appendChild(tableItem);
-                }
-
-                table2.appendChild(rowItem);
-            }
-
-            for (var m = 0; m <= toppings2.length; m++) {
-                table2.rows[m].cells[3].addEventListener("click", function(m) {
-                    alert(m + " " + toppings2[m-1][0]+ " " + toppings2[m-1][1]+ " " + toppings2[m-1][2]);
-                    window.open("SendAnswerToUser.html?token:"+toppings2[m-1][0],"_parent");
-                }.bind(null, m));
-
-            }
-
-        }
-    });
-
-
-}
+        <div class="subject">
+            <h5 >سامانه رسیدگی به انتقادات و پیشنهادات دانشجویان دانشگاه شهید بهشتی </h5>
+        </div>
 
 
 
-function date() {
-    n = new Date();
-    y = n.getFullYear();
-    m = n.getMonth() + 1;
-    d = n.getDate();
-    h = n.getHours();
-    min = n.getMinutes();
-    document.getElementById("date-time").innerHTML = m + "/" + d + "/" + y + "&nbsp &nbsp &nbsp" + h + " : " + min;
-}
+        <p class="cases">موارد رسیدگی نشده :</p>
+        <br>
+        <table class="table1" id="table1">
+            <tr>
+                <th>شناسه</th>
+                <th>تاریخ</th>
+                <th>موضوع</th>
+                <th>مشاهده مورد</th>
+            </tr>
+            <tr id="empty1">
+                <td>&nbsp</td>
+                <td style="color: red">موردی وجود ندارد</td>
+                <td>&nbsp</td>
+                <td>&nbsp</td>
+            </tr>
+        </table>
+        <br>
+        <br>
 
-function show() {
-    var elem = document.getElementById("verNav");
-    elem.style.display = "block";
-    document.getElementById("menubar").style.display = "none";
-}
+        <p class="cases">موارد رسیدگی شده :</p>
+        <br>
+        <table class="table2" id="table2">
+            <tr>
+                <th>شناسه</th>
+                <th>تاریخ</th>
+                <th>موضوع</th>
+                <th>مشاهده مورد</th>
+            </tr>
+            <tr id="empty2">
+                <td>&nbsp</td>
+                <td style="color: red">موردی وجود ندارد</td>
+                <td>&nbsp</td>
+                <td>&nbsp</td>
+            </tr>
+        </table>
 
+    </div>
 
+</div>
 
-function clearcache() {
+<script src="js/employeePage.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    localStorage.setItem("name", "0");
-    localStorage.setItem("email", "0");
-    localStorage.setItem("password", "0");
-    localStorage.setItem("token", "0");
-    window.open("index.html","_parent");
+</body>
 
-}
-
-
-function createArray(length) {
-    var arr = new Array(length || 0),
-        i = length;
-
-    if (arguments.length > 1) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createArray.apply(this, args);
-    }
-
-    return arr;
-}
+</html>
