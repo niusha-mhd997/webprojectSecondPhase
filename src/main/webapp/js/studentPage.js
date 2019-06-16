@@ -71,7 +71,7 @@ function myFunction() {
             for (var m = 0; m <= toppings.length; m++) {
                 table.rows[m].cells[4].addEventListener("click", function(m) {
                   //  alert(m + " " + toppings[m-1][0]+ " " + toppings[m-1][1]+ " " + toppings[m-1][2]);
-                    window.open("http://localhost:8080/contacts/EachCaseOfUser.html?token:"+toppings[m-1][0],"_parent");
+                    window.open("EachCaseOfUser.html?token:"+toppings[m-1][0],"_parent");
                 }.bind(null, m));
 
             }
@@ -84,16 +84,17 @@ function myFunction() {
 }
 
 
+
 function clearcache() {
 
     localStorage.setItem("name", "0");
     localStorage.setItem("email", "0");
     localStorage.setItem("password", "0");
     localStorage.setItem("token", "0");
-    window.open("http://localhost:8080/contacts/index.html","_parent");
+    localStorage.setItem("role", "0");
+    window.location.replace("index.html");
 
 }
-
 
 function date() {
     n = new Date();
