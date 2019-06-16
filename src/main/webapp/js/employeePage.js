@@ -145,7 +145,9 @@ function date() {
     d = n.getDate();
     h = n.getHours();
     min = n.getMinutes();
-    document.getElementById("date-time").innerHTML = m + "/" + d + "/" + y + "&nbsp &nbsp &nbsp" + h + " : " + min;
+    document.getElementById("date-time").innerHTML = m + "/" + d + "/" + y + "&nbsp &nbsp &nbsp" + h + " : " 
+
++ min;
 }
 
 function show() {
@@ -162,9 +164,11 @@ function clearcache() {
     localStorage.setItem("email", "0");
     localStorage.setItem("password", "0");
     localStorage.setItem("token", "0");
-    window.open("index.html","_parent");
+    localStorage.setItem("role", "0");
+    window.location.replace("index.html");
 
 }
+
 
 
 function createArray(length) {
