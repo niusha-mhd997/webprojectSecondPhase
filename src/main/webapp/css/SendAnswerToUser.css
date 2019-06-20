@@ -7,7 +7,14 @@ html{
   text-align: right;
   height: 100%;
 }
-
+.choose{
+  color: #dc3545;
+  text-decoration: underline;
+}
+.choose:hover{
+  cursor: pointer;
+  color: black;
+}
 #matndiv{
   background: #FFFBCE;
   solid-color: #000;
@@ -116,7 +123,23 @@ li{
   margin: auto;
 }
 
+.leftSide{
+  text-align: center;
+  margin-right: 0;
+}
+
 @font-face {
-  src: url('../font/IRANSans.ttf');
+  src: url('font/IRANSans.ttf');
   font-family: "iran sans";
+}
+.casesVerNav{
+  color: white;
+  font-size: large;
+}
+#khorooj:hover{
+  cursor: pointer;
+  color: #111659;
+}
+#khorooj{
+  color: #fff;
 }
