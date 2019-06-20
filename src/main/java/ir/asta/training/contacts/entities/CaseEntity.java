@@ -43,7 +43,9 @@ public class CaseEntity {
     public void setSENDER(StudentEntity SENDER) {
         this.SENDER = SENDER;
     }
-
+    public StudentEntity getSENDER() {
+        return SENDER;
+    }
 
     @ManyToOne
     @JoinColumn(name="RECEIVER_EMAIL", referencedColumnName = "EMAIL")
