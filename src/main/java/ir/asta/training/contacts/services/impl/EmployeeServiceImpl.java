@@ -59,6 +59,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
+    @Override
+    public ActionResult<String> SendAnswerToCase(String caseToken, int employeeToken, String javab) {
+
+        if(employeeManager.SendAnswerToCase(caseToken,employeeToken,javab)){
+            return new ActionResult<String>(true, "با موفقیت ارسال شد", null);
+
+        }
+        else{
+            return new ActionResult<String>(false, "خطا", null);
+        }
+    }
 
     @Override
     public List<CaseEntity> getEmployeeCasesByToken(int token, boolean done) {
