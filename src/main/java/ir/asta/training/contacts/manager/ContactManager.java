@@ -1,45 +1,56 @@
 package ir.asta.training.contacts.manager;
 
-import java.util.List;
+/**
+ * Created by win_8.1 on 6/5/2019.
+ */
 
+import ir.asta.training.contacts.dao.CaseDao;
+import ir.asta.training.contacts.dao.EmployeeDao;
+import ir.asta.training.contacts.entities.CaseEntity;
+import ir.asta.training.contacts.entities.EmployeeEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import org.springframework.transaction.annotation.Transactional;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
-
-import ir.asta.training.contacts.dao.ContactDao;
-import ir.asta.training.contacts.entities.ContactEntity;
-
-@Named("contactManager")
-public class ContactManager {
-
-	@Inject
-	ContactDao dao;
-
-	@Transactional
-	public void save(ContactEntity entity) {
-		dao.save(entity);
-	}
-
-	public ContactEntity load(Long id) {
-		// TODO implement this method
-		return null;
-	}
-	
-	public List<ContactEntity> findAll(String entityName) {
-		// TODO implement this method
-		return dao.findAll(entityName);
-	}
+@Named("employeeManager")
+public class EmployeeManager {
 
 
-	public int Login(String email, String password){
+    @Inject
+    EmployeeDao employeeDao;
 
-		return dao.Login(email, password);
+    @Inject
+    CaseDao caseDao;
 
-	}
+    public EmployeeEntity getEmployeeByEmail(String email){
+        return employeeDao.getEmployeeByEmail(email);
+    }
 
 
+    public List<EmployeeEntity> getAllEmployees() {
+        return employeeDao.getAllEmployees();
+    }
 
 
-	
+    @Transactional
+    public boolean register(EmployeeEntity entity) {
+        return employeeDao.Register(entity);
+    }
+
+    @Transactional
+    public boolean SendAnswerToCase(String caseToken, int employeeToken, String javab) {
+        return employeeDao.SendAnswerToCase(caseToken,employeeToken,javab);
+    }
+
+    public List<CaseEntity> getEmployeeCasesByToken(int token, boolean done) {
+
+        if(done){
+            return caseDao.getEmployeeCasesDoneByToken(token);
+        }else{
+            return caseDao.getEmployeeNotDoneByToken(token);
+        }
+
+    }
 }
