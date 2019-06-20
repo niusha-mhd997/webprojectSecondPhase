@@ -139,6 +139,8 @@ public class StudentServiceImpl implements StudentService {
                 c.getRECEIVER().setEmail(null);
                 c.getRECEIVER().setToken(0);
                 c.getRECEIVER().setPermission(false);
+                c.getSENDER().setPassword(null);
+                c.getSENDER().setToken(0);
             }
             return caseManager.getCasesByUserToken(token);
         } catch (Exception e) {
@@ -237,4 +239,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
 
+    @Override
+    public String AddWord(int firstword) {
+
+        int sum = firstword + 8;
+        return "<html lang=\"en\"><body><h1>final result: " + sum + "</h1></body></html>";
+    }
 }
