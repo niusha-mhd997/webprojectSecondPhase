@@ -28,6 +28,13 @@ public interface EmployeeService {
                                                 @FormParam("semat") String semat,
                                                 @FormParam("password") String password);
 
+    @POST
+    @Path("/sendanswertocase")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ActionResult<String> SendAnswerToCase(@FormParam("casetoken") String caseToken,
+                                                 @FormParam("employeetoken") int employeeToken,
+                                                 @FormParam("javab") String javab);
+
 
     @GET
     @Path("/getEmployeeCasesByToken/{token}/{done}")
