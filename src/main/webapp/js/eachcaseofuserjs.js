@@ -31,7 +31,7 @@ function myFunction() {
     document.getElementById("emailofuser").innerHTML = "ایمیل: " + email;
 
 
-    var token = localStorage.getItem("token");
+    var user_token = localStorage.getItem("token");
 
 
     var st;
@@ -114,5 +114,7 @@ function clearcache() {
     localStorage.setItem("email", "0");
     localStorage.setItem("password", "0");
     localStorage.setItem("token", "0");
+    localStorage.setItem("role", "0");
     window.open("http://localhost:8080/contacts/index.html","_parent");
 }
+
