@@ -1,5 +1,6 @@
 package ir.asta.training.contacts.dao;
 
+import ir.asta.training.contacts.entities.CaseEntity;
 import ir.asta.training.contacts.entities.EmployeeEntity;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,24 +55,48 @@ public class EmployeeDao {
         }
     }
 
+    @Transactional
     public boolean SendAnswerToCase(String caseToken, int employeeToken, String javab) {
 
         String entityName = "CaseEntity";
 
-        Query query = entityManager.createQuery(
-                "update " + entityName +" e SET e.answer = :javab " +
-                        "WHERE e.id = :caseToken")
-                .setParameter("caseToken", caseToken)
-                .setParameter("javab", javab);
+        try {
 
-        int rowsUpdated = query.executeUpdate();
+            CaseEntity caseen = (CaseEntity) entityManager.createQuery("select e from " + entityName +
+                    " e where e.id = :caseToken AND e.RECEIVER.token = :employeeToken")
+                    .setParameter("caseToken", caseToken)
+                    .setParameter("employeeToken", employeeToken)
+                    .getResultList()
+                    .get(0);
 
+            boolean isAnswered = caseen.getStatuss();
 
-        if(rowsUpdated==1){
-            return true;
-        }else{
+            if (!isAnswered) {
+                Query query = entityManager.createQuery(
+                        "update " + entityName + " e SET e.answer = :javab, e.statuss = true " +
+                                "WHERE e.id = :caseToken")
+                        .setParameter("caseToken", caseToken)
+                        .setParameter("javab", javab);
+
+                int rowsUpdated = query.executeUpdate();
+
+                if (rowsUpdated == 1) {
+                    return true;
+
+                } else {
+                    //etminan
+                    return false;
+                }
+            } else {
+                // case is answered before
+                return false;
+            }
+
+        } catch (Exception e) {
+            // case not found
             return false;
         }
+
 
     }
 
