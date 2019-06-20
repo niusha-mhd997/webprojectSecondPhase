@@ -31,9 +31,6 @@ public class StudentEntity {
 
     @OneToMany(mappedBy = "SENDER", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<CaseEntity> CaseEntitys;
-    public List<CaseEntity> getCaseEntitys() {
-        return CaseEntitys;
-    }
     public void setCaseEntitys(List<CaseEntity> caseEntitys) {
         CaseEntitys = caseEntitys;
     }
