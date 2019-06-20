@@ -1,12 +1,11 @@
 package ir.asta.training.contacts.dao;
 
 import ir.asta.training.contacts.entities.EmployeeEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -33,6 +32,7 @@ public class EmployeeDao {
 
     }
 
+
     public List<EmployeeEntity> getAllEmployees() {
         String entityName = "EmployeeEntity";
         String queryStr = "select new ir.asta.training.contacts.entities.EmployeeEntity(e.email, e.name, e.semat) from " + entityName + " e";
@@ -53,4 +53,26 @@ public class EmployeeDao {
             return false;
         }
     }
+
+    public boolean SendAnswerToCase(String caseToken, int employeeToken, String javab) {
+
+        String entityName = "CaseEntity";
+
+        Query query = entityManager.createQuery(
+                "update " + entityName +" e SET e.answer = :javab " +
+                        "WHERE e.id = :caseToken")
+                .setParameter("caseToken", caseToken)
+                .setParameter("javab", javab);
+
+        int rowsUpdated = query.executeUpdate();
+
+
+        if(rowsUpdated==1){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
 }
