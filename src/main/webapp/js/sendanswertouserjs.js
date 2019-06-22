@@ -103,15 +103,41 @@ function clearcache() {
 
 function sendanswer() {
 
+    var st;
+
+    var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
+    var queries = queryString.split("&");
+    for (var i = 0; i < queries.length; i++) {
+        st = (queries[i]);
+    }
+
+    var queryString = (window.location.href).substr((window.location.href).indexOf('?') + 1);
+    var casetoken = (queryString.split(':'))[1];
+    var emptoken = localStorage.getItem("token");
+
+
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "rest/employee/sendanswertocase/" + token,
-        "method": "GET",
+        "url": "rest/employee/sendanswertocase/",
+        "method": "POST",
         "headers": {
             "content-type": "application/x-www-form-urlencoded",
             "cache-control": "no-cache"
+        },
+        "data": {
+            "casetoken": casetoken,
+            "employeetoken": localStorage.getItem("token"),
+            "javab": document.getElementById('matn_eteraz').value
+
         }
     };
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        alert("پاسخ با موفقیت ارسال شد!");
+        window.location.replace("EmployeePage.html");
+    });
 
 }
