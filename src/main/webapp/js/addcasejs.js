@@ -24,7 +24,7 @@ function myFunction() {
     var settings2 = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:8080/contacts/rest/employee/getallemployees",
+        "url": "rest/manager/getnacceptedemps",
         "method": "GET",
         "headers": {
             "content-type": "application/x-www-form-urlencoded",
@@ -179,6 +179,7 @@ function clearcache() {
     localStorage.setItem("email", "0");
     localStorage.setItem("password", "0");
     localStorage.setItem("token", "0");
+    localStorage.setItem("role", "0");
     window.open("http://localhost:8080/contacts/index.html", "_parent");
 
 }
