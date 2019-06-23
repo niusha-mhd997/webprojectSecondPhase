@@ -56,7 +56,14 @@ function Login() {
         }
 
         if(response.message === "به عنوان مدیر وارد شدید"){
-             alert("به عنوان مدیر وارد شدید");
+             alert("به عنوان مدیر وارد شدید!");
+
+            localStorage.setItem("name",response.data.name);
+            localStorage.setItem("email",response.data.email);
+            localStorage.setItem("password",response.data.password);
+            localStorage.setItem("role","manager");
+
+             window.open("ManagerPage.html","_parent");
         }
 
         if(response.message === "به عنوان کارمند وارد شدید"){
