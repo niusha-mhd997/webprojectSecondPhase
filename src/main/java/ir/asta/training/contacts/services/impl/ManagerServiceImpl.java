@@ -19,8 +19,8 @@ public class ManagerServiceImpl implements ManagerService {
     ManagerManager manager;
 
     @Override
-    public ActionResult<String> AcceptEmployee(int employeetoken) {
-        String respons = manager.AcceptEmployee(employeetoken);
+    public ActionResult<String> AcceptEmployee(String employeemail) {
+        String respons = manager.AcceptEmployee(employeemail);
         return new ActionResult<String>(true, respons, null);
     }
 
