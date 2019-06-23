@@ -12,9 +12,7 @@ function date(){
     d = n.getDate();
     h=n.getHours();
     min=n.getMinutes();
-    document.getElementById("date-time").innerHTML = d + "/" + m + "/" + y +"&nbsp &nbsp &nbsp" + h+" : 
-
-"+min;
+    document.getElementById("date-time").innerHTML = d + "/" + m + "/" + y +"&nbsp &nbsp &nbsp" + h+" : "+min;
 
     var name = localStorage.getItem("name");
     var email = localStorage.getItem("email");
@@ -28,6 +26,9 @@ function date(){
     if(role==="student"){
         window.location.replace("StudentPage.html");
     }
+    if(role==="manager"){
+        window.location.replace("ManagerPage.html");
+    }
 
 }
 
@@ -37,9 +38,9 @@ function show() {
     document.getElementById("menubar").style.display="none";
 }
 function accept() {
-  document.getElementById("questionmarkicon").style.visibility="hidden";
-  document.getElementById("accepticon").style.visibility="visible";
-  document.getElementById("denyicon").style.visibility="hidden";
+    document.getElementById("questionmarkicon").style.visibility="hidden";
+    document.getElementById("accepticon").style.visibility="visible";
+    document.getElementById("denyicon").style.visibility="hidden";
 
     // elem.style.visibility =" hidden";
     // document.getElementById("accepticon").style.visibility=
@@ -62,6 +63,7 @@ function delet1() {
     // document.getElementById("accepticon").style.visibility=
     // alert("gshjkl");
 }
+
 
 
 
