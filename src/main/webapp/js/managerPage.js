@@ -40,6 +40,7 @@ function myFunction() {
             toppings[f][1]=response[f].email;
             toppings[f][2]=response[f].semat;
             toppings[f][3]="تایید";
+            toppings[f][4]=response[f].email;
 
         }
 
@@ -55,14 +56,46 @@ function myFunction() {
                     tableItem.textContent = toppings[i][j];
                     if (j === 3) {
                         tableItem.className = "choose";
-                        tableItem.onclick=f1;
+                        tableItem.id = "choose";
                     }
                     rowItem.appendChild(tableItem);
                 }
 
                 table.appendChild(rowItem);
             }
+
+
+            for (var m = 0; m <= toppings.length; m++) {
+                table.rows[m].cells[3].addEventListener("click", function(m) {
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "rest/manager/acceptemployee",
+                        "method": "post",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache"
+                        },
+                        "data": {
+                            "employeemail": toppings[m - 1][4]
+                        }
+                    };
+
+                    $.ajax(settings).done(function (response) {
+
+                        alert("با موفقیت تایید شد");
+                        window.location.replace("ManagerPage.html");
+
+                    });
+
+                }.bind(null, m));
+
+            }
+
+
         }
+
 
 
     });
@@ -168,3 +201,17 @@ function createArray(length) {
 
     return arr;
 }
+
+
+
+function clearcache() {
+
+    localStorage.setItem("name", "0");
+    localStorage.setItem("email", "0");
+    localStorage.setItem("password", "0");
+    localStorage.setItem("token", "0");
+    localStorage.setItem("role", "0");
+    window.location.replace("index.html");
+
+}
+
