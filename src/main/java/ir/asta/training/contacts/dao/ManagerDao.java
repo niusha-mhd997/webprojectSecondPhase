@@ -19,13 +19,13 @@ public class ManagerDao {
     private EntityManager entityManager;
 
     @Transactional
-    public String AcceptEmployee(int token) {
+    public String AcceptEmployee(String email) {
         String entityName = "EmployeeEntity";
 
         Query query = entityManager.createQuery(
                 "update " + entityName + " e SET e.permission = true " +
-                        "WHERE e.token = :token")
-                .setParameter("token", token);
+                        "WHERE e.email = :email")
+                .setParameter("email", email);
 
         int rowsUpdated = query.executeUpdate();
 
@@ -62,3 +62,4 @@ public class ManagerDao {
     }
 
 }
+
