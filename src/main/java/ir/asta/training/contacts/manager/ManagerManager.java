@@ -15,8 +15,8 @@ public class ManagerManager {
     @Inject
     ManagerDao dao;
 
-    public String AcceptEmployee(int employeetoken) {
-        return dao.AcceptEmployee(employeetoken);
+    public String AcceptEmployee(String employeemail) {
+        return dao.AcceptEmployee(employeemail);
     }
 
     public List<EmployeeEntity> getAllPermittedEmployees(){
