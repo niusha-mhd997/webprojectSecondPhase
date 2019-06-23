@@ -17,7 +17,7 @@ public interface ManagerService {
     @POST
     @Path("/acceptemployee")
     @Produces(MediaType.APPLICATION_JSON)
-    public ActionResult<String> AcceptEmployee(@FormParam("employeetoken") int employeetoken);
+    public ActionResult<String> AcceptEmployee(@FormParam("employeemail") String employeemail);
 
 
     @GET
